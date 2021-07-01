@@ -166,4 +166,4 @@ async def unblacklist(ctx, user: discord.Member):
         embed=discord.Embed(title="Unblacklist Error",description="Mentioned user is not blacklisted.",color=discord.Color.red())
         await ctx.send(embed=embed)
 
-client.run("ODM4Mjk0MzI4NTMwNDM2MDk3.YI5Abg.Mg517QSAi3jqiHU7dr6jIiA9ip4")
+client.run("")
