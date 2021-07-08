@@ -46,7 +46,7 @@ async def help(ctx):
     embed.add_field(name="`!config`",value="Shows the ticket systems configuration.")
     embed.add_field(name="`!blacklist [@user]`",value="Blacklist mentioned user from creating a ticket.",inline=False)
     embed.add_field(name="`!unblacklist [@user]`",value="Unblacklist a blacklisted user.",inline=False)
-    embed.set_footer(text="Made by lxy#7777")
+    embed.set_footer(text="Made by lxy#5676")
 
     await ctx.send(embed=embed)
 
@@ -58,12 +58,12 @@ async def config(ctx):
 
     except KeyError:
         embed=discord.Embed(title="Ticket Error",description="Ticket system has not been setup.",color=discord.Color.red())
-        embed.set_footer(text="Made by lxy#7777")
+        embed.set_footer(text="Made by lxy#5676")
         await ctx.send(embed=embed)
 
     else:
         embed=discord.Embed(title="Ticket System",description=f"**Message ID:** {msg_id}\n**Category ID:** {category_id}")
-        embed.set_footer(text="Made by lxy#7777")
+        embed.set_footer(text="Made by lxy#5676")
         await ctx.send(embed=embed)
 
 @client.event
@@ -94,7 +94,7 @@ async def on_raw_reaction_add(payload):
 
             
             embed=discord.Embed(title="Ticket Opened",description=f"Support will be with you shortly. Use `!close` to close the ticket.",color=discord.Color.green())
-            embed.set_footer(text="Made by lxy#7777")
+            embed.set_footer(text="Made by lxy#5676")
             await ticket_channel.send(f"{payload.member.mention} Welcome", embed=embed)
 
             try:
@@ -112,7 +112,7 @@ async def on_raw_reaction_add(payload):
 async def setup(ctx,msg: discord.Message=None, category: discord.CategoryChannel=None):
     if msg is None or category is None:
         embed=discord.Embed(title="Ticket Error",description="Argument(s) was not given or was invalid.",color=discord.Color.red())
-        embed.set_footer(text="Made by lxy#7777")
+        embed.set_footer(text="Made by lxy#5676")
         await ctx.channel.send(embed=embed)
         return
 
@@ -131,7 +131,7 @@ async def setup(ctx,msg: discord.Message=None, category: discord.CategoryChannel
     await msg.add_reaction(u"\U0001F3AB")
 
     embed=discord.Embed(title="Ticket Success",description="Ticket system successfully setup.",color=discord.Color.green())
-    embed.set_footer(text="Made by lxy#7777")
+    embed.set_footer(text="Made by lxy#5676")
     await ctx.channel.send(embed=embed)
 
 @client.command()
@@ -147,9 +147,11 @@ async def blacklist(ctx, user: discord.Member):
             data["blacklistedUsers"].append(user.id)
             write_json(data, "blacklist")
             embed=discord.Embed(title="User Blacklisted!",description=f"{user.mention} Has Been Blacklisted.",color=discord.Color.green())
+            embed.set_footer(text="Made by lxy#5676")
             await ctx.send(embed=embed)
         except:
             embed=discord.Embed(title="Blacklist Error",description="Can't find mentioned user.",color=discord.Color.red())
+            embed.set_footer(text="Made by lxy#5676")
             await ctx.send(embed=embed)
 
 @client.command()
@@ -161,9 +163,11 @@ async def unblacklist(ctx, user: discord.Member):
         data["blacklistedUsers"].remove(user.id)
         write_json(data, "blacklist")
         embed=discord.Embed(title="User Unblacklisted!",description=f"{user.mention} Has Been Unblacklisted.",color=discord.Color.green())
+        embed.set_footer(text="Made by lxy#5676")
         await ctx.send(embed=embed)
     except:
         embed=discord.Embed(title="Unblacklist Error",description="Mentioned user is not blacklisted.",color=discord.Color.red())
+        embed.set_footer(text="Made by lxy#5676")
         await ctx.send(embed=embed)
 
 client.run("")
