@@ -1,4 +1,4 @@
 # ticketbot
-Ticket Bot - made by lxy#5676
+Ticket Bot - made by xqi#1400
 
 basic ticket system bot with blacklist commands
